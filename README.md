@@ -87,4 +87,4 @@ copyAndPasteContent();
 
 ## Demo
 
-[Click here](http://127.0.0.1:5500/Assignments/lubunga-sadi-assignment-3/index.html) to test the application
+[Click here](https://lubunga-sadi.github.io/continuous-scroll/) to test the application
