@@ -8,15 +8,22 @@ the steps to achieve this technique using HTML, CSS and JavaScript.
 
 
 ```html
-<div class="scroll">
+<section class="scroll flex">
   <div class="box">Item 1</div>
   <div class="box">Item 2</div>
+  <div class="box">Item 3</div>
+  <div class="box">Item 4</div>
+  <div class="box">Item 5</div>
+  <div class="box">Item 6</div>
+  <div class="box">Item 7</div>
   <!-- Add more items as needed -->
-</div>
+</section> 
 ```
 
 #### The HTML would have the most basic elements:
+
 1. Create a parent div with the class "scroll" within your body section.
+
 2. Within that parent add the content that you desire
 
 ## CSS Structure
@@ -29,14 +36,21 @@ the steps to achieve this technique using HTML, CSS and JavaScript.
 }
 
 .box {
+  position: relative;
   display: inline-block;
-  width: 200px;
   height: 200px;
-  margin-right: 10px;
-  background-color: #ccc;
+  flex: 0 0 400px;
+  max-width: 400px;
+  background-color: #fff;
   text-align: center;
   line-height: 200px;
+  margin: 0 15px 20px 0;
 }
+
+/*
+::-webkit-scrollbar {
+  display: none;
+}*/
 ```
 
 #### Breaking it down:
@@ -47,28 +61,32 @@ the steps to achieve this technique using HTML, CSS and JavaScript.
 
   white-space: nowarap - All content within the container stays on one line.
 
+  ::-webkit-scrollbar: - Control the style of the default scrollbar.
+
 ## JavaScript Structure
 
 ```javascript
-const scrollContainer = document.querySelector('.scroll-container');
+'use strict';
+
+const scrollContainer = document.querySelector('.scroll');
 const firstBoxes = document.querySelectorAll('.box');
 
-function copyAndPasteContent() {
-  firstBoxes.forEach(item => {
-    const clone = item.cloneNode(true);
+  // Function to copy and paste the first set of boxes
+function cloneAndAppendFirstBoxes() {
+  firstBoxes.forEach(box => {
+    const clone = box.cloneNode(true);
     scrollContainer.appendChild(clone);
   });
 }
 
+// Detect when scrolling reaches the end
 scrollContainer.addEventListener('scroll', () => {
-  const lastItem = scrollContainer.lastElementChild;
-  const lastItemRect = lastItem.getBoundingClientRect();
-
-  if (lastItemRect.right <= window.innerWidth) {
-    copyAndPasteContent();
+  const lastBox = scrollContainer.lastElementChild;
+  const lastBoxRect = lastBox.getBoundingClientRect();
+  if (lastBoxRect.right <= window.innerWidth) {
+    cloneAndAppendFirstBoxes(); // copy and paste when reaching the end
   }
 });
-copyAndPasteContent();
 ```
 #### Breaking it down:
 
@@ -83,7 +101,6 @@ copyAndPasteContent();
 
 4. When the end is reached the content is cloned and appended via the copyAndPasteContent()
    function. Creating a continous scroll effect.
-
 
 ## Demo
 
