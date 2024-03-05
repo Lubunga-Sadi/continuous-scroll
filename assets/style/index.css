@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+:root {
+  --text-font-size: 00px;
+  --text-font-color: rgb(255, 255, 255);
+  --transition: all .1s ease-in-out;
+}
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+}
+
+* {
+  margin: 0px;
+}
+
+
+body {
+  background-color: #202528;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
+}
+
+header, footer {
+  background-color: #4d7c75;
+  border-bottom: 1px solid #ffffff68;
+  line-height: 60px;
+  height: 60px;
+}
+
+
+main {
+  height: calc(100vh - 60px - 60px);
+  display: grid;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap {
+  gap: 15px;
+}
+
+
+/*-----CONTENT-----*/
+
+
+h1 {
+  color: #fff;
+  font-weight: 800;
+}
+
+.buttons {
+  text-align: right;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+}
+
+.box {
+  height: 300px;
+  flex: 0 0 340px;
+  max-width: 340px;
+  padding: 15px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: #3e484d;
+  background-image: linear-gradient(to bottom, #4f5b62, #3e484d);
+}
+
+.img {
+  height: 70%; 
+  filter: brightness(0.7); 
+  border: 1px solid #333b3f;
+}
+
+.text {
+  height: 25%; display: grid;
+  background-color: #333b3f;
+  padding: 0 15px;
+  margin-top: 5%;
+}
+
+.basketball {background: #fff url(../img/basketball.jpg) center / cover no-repeat ;}
+.soccer {background: #fff url(../img/soccer.jpg) center / cover no-repeat ;}
+.boxing {background: #fff url(../img/boxing.jpg) center / cover no-repeat ;}
+.golf {background: #fff url(../img/golf.jpg) center / cover no-repeat ;}
+.vollyball {background: #fff url(../img/volleyball.jpg) center / cover no-repeat ;}
+.tennis {background: #fff url(../img/tennis.jpg) center / cover no-repeat ;}
+.running {background: #fff url(../img/running.jpg) center / cover no-repeat ;}
+
+h2 {
+  color: #fff;
+  align-items: center;
+}
+
+.new {
+  height: 600px;
+  background-color: #fff;
+}
+
+/*-----SLIDER-----*/
+
+
+ .scroll {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  white-space: nowrap;
+  -ms-overflow-style: none;  
+  padding: 0 30px;
+}
+
+.snap {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 15px;
+}
+
+.snap > * {                   /* target children of snap */
+  scroll-snap-align: start;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  background: #3e484d; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5c6b73;
+  border-radius: 2px;
+  width: 20%;              /* prevent shrinkage on clone */
+}
+
+
+/*-----------------------------*/
+/*         RESPONSIVE          */
+/*-----------------------------*/
+
+
+@media (max-width: 768px) {
+  header {
+    text-align: center;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .box {
+    height: 300px;
+    flex: 0 0 300px;
+    max-width: 300px;
+  }
+
+  .text {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .box {
+    height: 300px;
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+}
