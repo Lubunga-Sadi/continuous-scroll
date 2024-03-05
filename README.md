@@ -87,4 +87,4 @@ copyAndPasteContent();
 
 ## Demo
 
-[Click here](http://http://127.0.0.1:5500/Assignments/lubunga-sadi-assignment-3/index.html) to test the application
+[Click here](http://127.0.0.1:5500/Assignments/lubunga-sadi-assignment-3/index.html) to test the application
